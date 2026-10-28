@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100b1c">
+  <meta name="description" content="A little universe made just for you.">
+  <title>For You, Always ✦</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div id="sparkle-field" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Birthday surprise home"><span class="brand-mark">✦</span> A LITTLE UNIVERSE</a>
+    <div class="top-actions">
+      <span id="progress-label" class="progress-label">A secret awaits</span>
+      <button id="music-toggle" class="icon-button" aria-label="Toggle music" title="Toggle music">♫ <span id="music-state">Music off</span></button>
+    </div>
+  </header>
+
+  <main id="app" class="app-shell">
+    <section id="screen-entry" class="screen active">
+      <div class="eyebrow"><span class="tiny-star">✦</span> A PRIVATE LITTLE SURPRISE</div>
+      <div class="lock-orbit"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="lock-icon">♡</div></div>
+      <h1>Some things are<br><em>just for you.</em></h1>
+      <p class="lead">A tiny world, a few secrets, and seven little reasons to smile.</p>
+      <form id="password-form" class="answer-form">
+        <label for="password-input">Enter your special date</label>
+        <div class="input-wrap"><input id="password-input" autocomplete="off" placeholder="DDMMYYYY" required><button class="submit-arrow" type="submit" aria-label="Unlock">↗</button></div>
+        <p id="password-feedback" class="feedback" aria-live="polite"></p>
+      </form>
+      <p class="micro-note">A hint: a date that means something to us. ♡</p>
+    </section>
+
+    <section id="screen-welcome" class="screen">
+      <div class="eyebrow">TODAY IS ALL ABOUT YOU</div>
+      <div class="portrait-frame"><img id="hero-photo" src="assets/images/her-photo.jpg" alt="A favourite photo" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="photo-placeholder">♡<span>Add her photo</span><small>assets/images/her-photo.jpg</small></div><span class="photo-sticker">my favourite human</span></div>
+      <h1>Happy Birthday,<br><em>beautiful.</em></h1>
+      <p class="lead">The world got a little brighter the day you arrived. I hope today reminds you how loved, precious, and wonderfully you are.</p>
+      <button class="primary-button" data-go="memories">Step into your surprise <span>→</span></button>
+    </section>
+
+    <section id="screen-memories" class="screen">
+      <div class="eyebrow">CHAPTER ONE · OUR LITTLE UNIVERSE</div>
+      <h1>Little things.<br><em>Big feelings.</em></h1>
+      <p class="lead">A few things I hope you never forget.</p>
+      <div class="memory-grid">
+        <article class="memory-card"><div class="memory-symbol">✧</div><h3>Your smile</h3><p>It has a way of making an ordinary day feel special.</p></article>
+        <article class="memory-card"><div class="memory-symbol">☾</div><h3>Our moments</h3><p>Even the smallest memories become favourites when they're with you.</p></article>
+        <article class="memory-card"><div class="memory-symbol">♡</div><h3>Just being you</h3><p>You don't have to do anything extra to be someone extraordinary.</p></article>
+      </div>
+      <div class="memory-photo-row"><img src="assets/images/memory-1.jpg" alt="A shared memory" onerror="this.style.display='none'"><img src="assets/images/memory-2.jpg" alt="Another shared memory" onerror="this.style.display='none'"><div class="memory-note">More memories to come…<br><span>♡</span></div></div>
+      <button class="primary-button" data-go="mission">I see a mission ahead <span>→</span></button>
+    </section>
+
+    <section id="screen-mission" class="screen">
+      <div class="eyebrow">CHAPTER TWO · THE TREASURE HUNT</div>
+      <div class="treasure-icon">♜</div>
+      <h1>Seven gifts.<br><em>Seven secrets.</em></h1>
+      <p class="lead">Har gift se pehle ek real-life mission hai. Task poora karo, mujhse passkey lo, phir apna guess lagao. Sahi guess par surprise khulega. ♡</p>
+      <div class="progress-card"><div class="progress-top"><span>YOUR TREASURE PROGRESS</span><strong id="mission-count">0 / 7</strong></div><div class="progress-track"><div id="mission-progress" class="progress-fill"></div></div><div class="progress-caption">One little surprise at a time ✦</div></div>
+      <button class="primary-button" data-go="gift-0">Begin the hunt <span>→</span></button>
+    </section>
+
+    <section id="screen-gift" class="screen">
+      <div class="gift-heading">
+        <div class="eyebrow" id="gift-kicker">GIFT 01 OF 07</div>
+        <div class="gift-number" id="gift-number">01</div>
+      </div>
+      <div id="gift-art" class="gift-art"><div class="gift-box"><span>✦</span></div></div>
+      <h1 id="gift-title">The Queen's Treasure</h1>
+      <p id="gift-riddle" class="lead">A little clue goes here.</p>
+      <form id="answer-form" class="answer-form">
+        <label for="answer-input">Your guess</label>
+        <div class="input-wrap"><input id="answer-input" autocomplete="off" placeholder="Type your answer…" required><button class="submit-arrow" type="submit" aria-label="Check answer">↗</button></div>
+        <p id="answer-feedback" class="feedback" aria-live="polite"></p>
+      </form>
+      <button id="hint-button" class="text-button" type="button">Need a tiny hint? +</button>
+      <p id="hint-text" class="hint-text hidden"></p>
+
+      <div id="gift-reveal" class="gift-reveal hidden" aria-live="polite">
+        <div class="reveal-sparkle">✧ ✦ ✧</div>
+        <div class="reveal-image-wrap"><img id="gift-image" src="" alt="Your gift" onerror="this.style.display='none';document.getElementById('gift-image-placeholder').style.display='grid'"><div id="gift-image-placeholder" class="gift-image-placeholder">♡<span>Add your gift photo</span></div></div>
+        <div class="reveal-label">YOU UNLOCKED</div>
+        <h2 id="gift-reveal-name">A little surprise</h2>
+        <p id="gift-message" class="lead"></p>
+        
+        <button id="next-gift-button" class="primary-button">Next secret <span>→</span></button>
+      </div>
+    </section>
+
+    <section id="screen-finale" class="screen">
+      <div class="eyebrow">CHAPTER THREE · THE LAST SECRET</div>
+      <div class="finale-heart">♡</div>
+      <h1>You found every<br><em>little treasure.</em></h1>
+      <p class="lead">But the best part was never inside a box. It was getting to make something just for you.</p>
+      <div class="letter-card">
+        <div class="letter-top">A LITTLE LETTER FOR YOU</div>
+        <p id="final-letter">Happy Birthday, my love. Thank you for being you. I hope this new year of your life brings you peace, laughter, exciting adventures, and all the little things your heart wishes for. You deserve to feel loved—not just today, but on the ordinary days too. ♡</p>
+        <img id="final-photo" src="assets/images/final-photo.jpg" alt="One last memory" onerror="this.style.display='none'">
+        <div class="signature">Always yours, <span>♡</span></div>
+      </div>
+      <div class="voice-card"><div><strong>A little voice note</strong><p>Press play for a message from me.</p></div><audio id="voice-note" controls preload="none"><source src="assets/audio/voice-note.mp3" type="audio/mpeg"></audio></div>
+      <button id="restart-button" class="secondary-button">Relive the surprise ↻</button>
+    </section>
+  </main>
+
+  <footer class="footer"><span>MADE WITH A LITTLE EXTRA LOVE</span><span>✦ ♡ ✦</span></footer>
+
+  <audio id="music-player" preload="none"></audio>
+  <audio id="sound-player" preload="none"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
